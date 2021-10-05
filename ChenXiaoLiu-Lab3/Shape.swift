@@ -15,17 +15,37 @@ import UIKit
 
 /// A `DrawingItem` that draws some shape to the screen.
 class Shape: DrawingItem {
-    var origin: CGPoint;
-    var color: UIColor;
+    var origin: CGPoint
+    var color: UIColor
+    let path = UIBezierPath()
+    var length: CGFloat = 75
+    var rotation: CGFloat = 0
     
     public required init(origin: CGPoint, color: UIColor){
         self.origin = origin
         self.color = color
     }
     
-    func draw() {}
+    final func draw() {
+        constructPath()
+        color.setFill()
+        path.fill()
+    }
+    
+    func constructPath() {}
     
     func contains(point: CGPoint) -> Bool {
-        return true
+        return path.contains(point)
+    }
+}
+
+extension UIBezierPath {
+    func rotate(by angleRadians: CGFloat) {
+        let center = CGPoint(x: bounds.midX, y: bounds.midY)
+        var transform = CGAffineTransform.identity
+        transform = transform.translatedBy(x: center.x, y: center.y)
+        transform = transform.rotated(by: angleRadians)
+        transform = transform.translatedBy(x: -center.x, y: -center.y)
+        self.apply(transform)
     }
 }

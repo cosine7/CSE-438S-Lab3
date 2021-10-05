@@ -6,11 +6,16 @@
 //
 
 import UIKit
+
 final class Square: Shape {
-    override func draw() {
-        color.setFill()
-        let path = UIBezierPath(rect: CGRect(x: origin.x - 10, y: origin.y - 10, width: 20, height: 20))
-        
-        path.fill()
+    override func constructPath() {
+        path.removeAllPoints()
+        let distance = length / 2.0
+        path.move(to: CGPoint(x: origin.x - distance, y: origin.y - distance))
+        path.addLine(to: CGPoint(x: origin.x - distance, y: origin.y + distance))
+        path.addLine(to: CGPoint(x: origin.x + distance, y: origin.y + distance))
+        path.addLine(to: CGPoint(x: origin.x + distance, y: origin.y - distance))
+        path.rotate(by: rotation)
+        path.close()
     }
 }

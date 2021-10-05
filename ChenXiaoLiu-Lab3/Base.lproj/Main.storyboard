@@ -69,10 +69,12 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sTd-BL-LDr" customClass="DrawingView" customModule="ChenXiaoLiu_Lab3" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="88" width="390" height="584"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <gestureRecognizers/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="x8A-BB-XzR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6bp-mT-jpi"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="x8A-BB-XzR" secondAttribute="bottom" id="7lh-LE-SI5"/>
@@ -82,15 +84,37 @@
                             <constraint firstItem="x8A-BB-XzR" firstAttribute="top" secondItem="sTd-BL-LDr" secondAttribute="bottom" constant="15" id="uVE-03-l1L"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="sTd-BL-LDr" secondAttribute="trailing" id="znY-4V-7yz"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="5EX-i1-N4q" appends="YES" id="311-uW-DkJ"/>
+                            <outletCollection property="gestureRecognizers" destination="PJ8-wy-1CE" appends="YES" id="cBy-xj-FBV"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Welcome" id="vfr-gs-BI8">
-                        <barButtonItem key="rightBarButtonItem" title="Clear" id="PdY-Tz-wCP"/>
+                        <barButtonItem key="rightBarButtonItem" title="Clear" id="PdY-Tz-wCP">
+                            <connections>
+                                <action selector="clearButtonPressed:" destination="BYZ-38-t0r" id="icK-Hg-iBW"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="canvas" destination="sTd-BL-LDr" id="5T5-j7-sCi"/>
+                        <outlet property="pinchGestureRecognizer" destination="5EX-i1-N4q" id="YjH-Pg-phr"/>
+                        <outlet property="rotationGestureRecognizer" destination="PJ8-wy-1CE" id="sQp-1x-1e5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="5EX-i1-N4q">
+                    <connections>
+                        <action selector="handlePinchGesture:" destination="BYZ-38-t0r" id="XQZ-1k-Mup"/>
+                        <outlet property="delegate" destination="8bC-Xf-vdC" id="gdq-gT-V8j"/>
+                    </connections>
+                </pinchGestureRecognizer>
+                <rotationGestureRecognizer id="PJ8-wy-1CE">
+                    <connections>
+                        <action selector="handleRotationGesture:" destination="BYZ-38-t0r" id="bob-OR-JKO"/>
+                        <outlet property="delegate" destination="8bC-Xf-vdC" id="q4k-jM-8gu"/>
+                    </connections>
+                </rotationGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="927.69230769230762" y="93.127962085308056"/>
         </scene>
