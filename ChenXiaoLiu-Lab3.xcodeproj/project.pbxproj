@@ -19,9 +19,9 @@
 		500A3761270AC5400070D787 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500A3760270AC5400070D787 /* Color.swift */; };
 		500A3766270AC8F80070D787 /* ShapeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500A3765270AC8F80070D787 /* ShapeType.swift */; };
 		500A3768270AC9FC0070D787 /* InputMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500A3767270AC9FC0070D787 /* InputMode.swift */; };
-		500A376A270ACDF80070D787 /* Square.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500A3769270ACDF80070D787 /* Square.swift */; };
-		500A376C270ACE060070D787 /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500A376B270ACE060070D787 /* Circle.swift */; };
-		500A376E270ACE160070D787 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500A376D270ACE160070D787 /* Triangle.swift */; };
+		500A3770270D30510070D787 /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500A376F270D30510070D787 /* Shapes.swift */; };
+		500A3772270D31D80070D787 /* SolidShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500A3771270D31D80070D787 /* SolidShape.swift */; };
+		500A3774270D31E80070D787 /* OutlineShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500A3773270D31E80070D787 /* OutlineShape.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,9 +39,9 @@
 		500A3760270AC5400070D787 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		500A3765270AC8F80070D787 /* ShapeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeType.swift; sourceTree = "<group>"; };
 		500A3767270AC9FC0070D787 /* InputMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputMode.swift; sourceTree = "<group>"; };
-		500A3769270ACDF80070D787 /* Square.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Square.swift; sourceTree = "<group>"; };
-		500A376B270ACE060070D787 /* Circle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
-		500A376D270ACE160070D787 /* Triangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
+		500A376F270D30510070D787 /* Shapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shapes.swift; sourceTree = "<group>"; };
+		500A3771270D31D80070D787 /* SolidShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolidShape.swift; sourceTree = "<group>"; };
+		500A3773270D31E80070D787 /* OutlineShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlineShape.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,9 +87,9 @@
 				500A3760270AC5400070D787 /* Color.swift */,
 				500A3765270AC8F80070D787 /* ShapeType.swift */,
 				500A3767270AC9FC0070D787 /* InputMode.swift */,
-				500A3769270ACDF80070D787 /* Square.swift */,
-				500A376B270ACE060070D787 /* Circle.swift */,
-				500A376D270ACE160070D787 /* Triangle.swift */,
+				500A376F270D30510070D787 /* Shapes.swift */,
+				500A3771270D31D80070D787 /* SolidShape.swift */,
+				500A3773270D31E80070D787 /* OutlineShape.swift */,
 			);
 			path = "ChenXiaoLiu-Lab3";
 			sourceTree = "<group>";
@@ -164,17 +164,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				500A376A270ACDF80070D787 /* Square.swift in Sources */,
 				500A3749270AA4B60070D787 /* ViewController.swift in Sources */,
 				500A3768270AC9FC0070D787 /* InputMode.swift in Sources */,
-				500A376E270ACE160070D787 /* Triangle.swift in Sources */,
+				500A3772270D31D80070D787 /* SolidShape.swift in Sources */,
 				500A3745270AA4B60070D787 /* AppDelegate.swift in Sources */,
 				500A3761270AC5400070D787 /* Color.swift in Sources */,
 				500A3747270AA4B60070D787 /* SceneDelegate.swift in Sources */,
-				500A376C270ACE060070D787 /* Circle.swift in Sources */,
 				500A375D270AA5120070D787 /* DrawingView.swift in Sources */,
 				500A3766270AC8F80070D787 /* ShapeType.swift in Sources */,
+				500A3770270D30510070D787 /* Shapes.swift in Sources */,
 				500A375C270AA5120070D787 /* DrawingItem.swift in Sources */,
+				500A3774270D31E80070D787 /* OutlineShape.swift in Sources */,
 				500A375B270AA5120070D787 /* Shape.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

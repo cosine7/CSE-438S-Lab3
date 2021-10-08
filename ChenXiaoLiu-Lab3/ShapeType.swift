@@ -8,18 +8,15 @@
 import UIKit
 
 enum ShapeType: Int {
-    case square = 0
-    case circle
-    case triangle
+    case solid = 0
+    case outline
     
-    func getInstance(_ point: CGPoint, _ color: UIColor) -> Shape {
+    func getInstance(origin: CGPoint, color: UIColor, shape: Shapes) -> Shape {
         switch self {
-        case .square:
-            return Square(origin: point, color: color)
-        case .circle:
-            return Circle(origin: point, color: color)
-        case .triangle:
-            return Triangle(origin: point, color: color)
+        case .solid:
+            return SolidShape(origin, color, shape)
+        case .outline:
+            return OutlineShape(origin, color, shape)
         }
     }
 }

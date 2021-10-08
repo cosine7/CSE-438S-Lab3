@@ -16,25 +16,53 @@ import UIKit
 /// A `DrawingItem` that draws some shape to the screen.
 class Shape: DrawingItem {
     var origin: CGPoint
-    var color: UIColor
+    let color: UIColor
+    let shape: Shapes
     let path = UIBezierPath()
-    var length: CGFloat = 75
+    var length: CGFloat = 90
     var rotation: CGFloat = 0
     
-    public required init(origin: CGPoint, color: UIColor){
+    public required init(_ origin: CGPoint, _ color: UIColor, _ shape: Shapes) {
         self.origin = origin
         self.color = color
+        self.shape = shape
     }
     
-    final func draw() {
-        constructPath()
-        color.setFill()
-        path.fill()
+    required convenience init(origin: CGPoint, color: UIColor) {
+        self.init(origin, color, .square)
     }
     
-    func constructPath() {}
+    func draw() {}
     
-    func contains(point: CGPoint) -> Bool {
+    final func constructPath() {
+        path.removeAllPoints()
+        let distance = length / 2.0
+        
+        switch shape {
+        case .square:
+            path.move(to: CGPoint(x: origin.x - distance, y: origin.y - distance))
+            path.addLine(to: CGPoint(x: origin.x - distance, y: origin.y + distance))
+            path.addLine(to: CGPoint(x: origin.x + distance, y: origin.y + distance))
+            path.addLine(to: CGPoint(x: origin.x + distance, y: origin.y - distance))
+        case .circle:
+            path.addArc(
+                withCenter: origin,
+                radius: length / 2.0,
+                startAngle: 0,
+                endAngle: CGFloat(Float.pi * 2),
+                clockwise: true
+            )
+        case .triangle:
+            let height = sqrt(pow(length, 2) - pow(length / 2.0, 2))
+            path.move(to: CGPoint(x: origin.x - distance, y: origin.y + height / 3.0))
+            path.addLine(to: CGPoint(x: origin.x + distance, y: origin.y + height / 3.0))
+            path.addLine(to: CGPoint(x: origin.x, y: origin.y - height / 3.0 * 2.0))
+        }        
+        path.rotate(by: rotation)
+        path.close()
+    }
+    
+    final func contains(point: CGPoint) -> Bool {
         return path.contains(point)
     }
 }

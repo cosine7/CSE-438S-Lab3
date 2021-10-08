@@ -10,6 +10,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    var shortcutItem: UIApplicationShortcutItem!
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -17,6 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        shortcutItem = connectionOptions.shortcutItem
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -29,6 +31,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneDidBecomeActive(_ scene: UIScene) {
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
+        handleShortcutItem(shortcutItem)
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
@@ -47,6 +50,36 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
+    // Learned from https://www.youtube.com/watch?v=cuJ8zE-48Dw
+    // and https://developer.apple.com/documentation/uikit/menus_and_shortcuts/add_home_screen_quick_actions
+    func windowScene(_ windowScene: UIWindowScene, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        self.shortcutItem = shortcutItem
+    }
+    
+    private func handleShortcutItem(_ item: UIApplicationShortcutItem?) {
+        guard item != nil,
+              let navController = window?.rootViewController as? UINavigationController,
+              let viewController = navController.children.first as? ViewController
+        else {
+            return
+        }
 
+        switch item!.type {
+        case "drawSolidSquare":
+            updateViewController(viewController, 0)
+        case "drawOutlineSquare":
+            updateViewController(viewController, 1)
+        case "shareThisApp":
+            viewController.share(items: [URL(string: "https://wustl.edu")!])
+        default:
+            return
+        }
+        shortcutItem = nil
+    }
+    
+    private func updateViewController(_ viewController: ViewController, _ segmentIndex: Int) {
+        viewController.shapeTypes.selectedSegmentIndex = segmentIndex
+        viewController.shapeType = ShapeType(rawValue: segmentIndex)
+        viewController.addItemToCanvasWith(origin: viewController.canvas.center)
+    }
 }
-
