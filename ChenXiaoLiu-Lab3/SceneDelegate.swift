@@ -65,9 +65,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
 
         switch item!.type {
-        case "drawSolidSquare":
+        case "drawSolidShape":
             updateViewController(viewController, 0)
-        case "drawOutlineSquare":
+        case "drawOutlineShape":
             updateViewController(viewController, 1)
         case "shareThisApp":
             viewController.share(items: [URL(string: "https://wustl.edu")!])

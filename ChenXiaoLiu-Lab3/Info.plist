@@ -18,17 +18,17 @@
 		</dict>
 		<dict>
 			<key>UIApplicationShortcutItemTitle</key>
-			<string>Draw a solid square</string>
+			<string>Draw a solid shape</string>
 			<key>UIApplicationShortcutItemType</key>
-			<string>drawSolidSquare</string>
+			<string>drawSolidShape</string>
 			<key>UIApplicationShortcutItemIconType</key>
 			<string>UIApplicationShortcutIconTypeCompose</string>
 		</dict>
 		<dict>
 			<key>UIApplicationShortcutItemTitle</key>
-			<string>Draw a outlined square</string>
+			<string>Draw a outlined shape</string>
 			<key>UIApplicationShortcutItemType</key>
-			<string>drawOutlineSquare</string>
+			<string>drawOutlineShape</string>
 			<key>UIApplicationShortcutItemIconType</key>
 			<string>UIApplicationShortcutIconTypeCompose</string>
 		</dict>
