@@ -105,15 +105,18 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, UIImagePick
     
     private func handleGesture(gesture: UIGestureRecognizer, onBegin: () -> Void, onChange: () -> Void) {
         guard gesture.view != nil,
-              inputMode == .move,
-              item != nil
+              inputMode == .move
         else {
             return
         }
         if gesture.state == .began {
+            let touchPoint = gesture.location(in: canvas)
+            if let item = canvas.itemAtLocation(touchPoint) as? Shape {
+                self.item = item
+            }
             onBegin()
         }
-        if gesture.state == .changed {
+        if gesture.state == .changed && item != nil {
             onChange()
             canvas.setNeedsDisplay()
         }
