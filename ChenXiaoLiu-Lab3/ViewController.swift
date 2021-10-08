@@ -113,8 +113,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, UIImagePick
             let touchPoint = gesture.location(in: canvas)
             if let item = canvas.itemAtLocation(touchPoint) as? Shape {
                 self.item = item
+                onBegin()
             }
-            onBegin()
         }
         if gesture.state == .changed && item != nil {
             onChange()
