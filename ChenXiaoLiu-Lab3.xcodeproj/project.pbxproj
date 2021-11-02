@@ -58,6 +58,9 @@
 		500A3738270AA4B60070D787 = {
 			isa = PBXGroup;
 			children = (
+				5018E4DE2730E622008D855B /* Model */,
+				5018E4DD2730E617008D855B /* View */,
+				5018E4DC2730E5FC008D855B /* Controller */,
 				500A3743270AA4B60070D787 /* ChenXiaoLiu-Lab3 */,
 				500A3742270AA4B60070D787 /* Products */,
 			);
@@ -76,22 +79,43 @@
 			children = (
 				500A3744270AA4B60070D787 /* AppDelegate.swift */,
 				500A3746270AA4B60070D787 /* SceneDelegate.swift */,
-				500A3748270AA4B60070D787 /* ViewController.swift */,
 				500A374A270AA4B60070D787 /* Main.storyboard */,
 				500A374D270AA4B60070D787 /* Assets.xcassets */,
-				500A3759270AA5120070D787 /* DrawingItem.swift */,
-				500A375A270AA5120070D787 /* DrawingView.swift */,
-				500A3758270AA5120070D787 /* Shape.swift */,
 				500A374F270AA4B60070D787 /* LaunchScreen.storyboard */,
 				500A3752270AA4B60070D787 /* Info.plist */,
-				500A3760270AC5400070D787 /* Color.swift */,
-				500A3765270AC8F80070D787 /* ShapeType.swift */,
-				500A3767270AC9FC0070D787 /* InputMode.swift */,
-				500A376F270D30510070D787 /* Shapes.swift */,
-				500A3771270D31D80070D787 /* SolidShape.swift */,
-				500A3773270D31E80070D787 /* OutlineShape.swift */,
 			);
 			path = "ChenXiaoLiu-Lab3";
+			sourceTree = "<group>";
+		};
+		5018E4DC2730E5FC008D855B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				500A3748270AA4B60070D787 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5018E4DD2730E617008D855B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				500A375A270AA5120070D787 /* DrawingView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5018E4DE2730E622008D855B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				500A3758270AA5120070D787 /* Shape.swift */,
+				500A3773270D31E80070D787 /* OutlineShape.swift */,
+				500A3771270D31D80070D787 /* SolidShape.swift */,
+				500A376F270D30510070D787 /* Shapes.swift */,
+				500A3767270AC9FC0070D787 /* InputMode.swift */,
+				500A3765270AC8F80070D787 /* ShapeType.swift */,
+				500A3760270AC5400070D787 /* Color.swift */,
+				500A3759270AA5120070D787 /* DrawingItem.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
